@@ -5,6 +5,11 @@
 #import "RXAssertions.h"
 #import "RXJSONArchiver.h"
 
+@interface RXJSONArchiver (RXJSONArchiverTestsAreUncomfortablyClairvoyant)
+-(NSString *)stringForBool:(BOOL)value;
+@end
+
+
 @interface RXJSONArchiverTests : SenTestCase {
 @private
 	NSMutableString *string;
@@ -26,8 +31,11 @@
 
 
 -(void)testEncodesBooleanYesAsTrue {
-	[archiver encodeBool:YES forKey:@"truth"];
-	RXAssertEquals(string, @"{\"truth\":true}");
+	RXAssertEquals([archiver stringForBool:YES], @"true");
+}
+
+-(void)testEncodesBooleanNoAsFalse {
+	RXAssertEquals([archiver stringForBool:NO], @"false");
 }
 
 @end

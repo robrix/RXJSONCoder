@@ -4,6 +4,10 @@
 
 #import "RXJSONArchiver.h"
 
+@interface RXJSONArchiver ()
+-(NSString *)stringForBool:(BOOL)value;
+@end
+
 @implementation RXJSONArchiver
 
 -(id)initForWritingWithMutableString:(NSMutableString *)_string {
@@ -21,6 +25,18 @@
 
 -(BOOL)allowsKeyedCoding {
 	return YES;
+}
+
+
+-(NSInteger)versionForClassName:(NSString *)className {
+	return -1;
+}
+
+
+-(NSString *)stringForBool:(BOOL)value {
+	return value?
+		@"true"
+	:	@"false";
 }
 
 @end
