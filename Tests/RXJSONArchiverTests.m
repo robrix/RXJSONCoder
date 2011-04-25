@@ -8,6 +8,7 @@
 @interface RXJSONArchiver (RXJSONArchiverTestsAreUncomfortablyClairvoyant)
 -(NSString *)stringForBool:(BOOL)value;
 -(NSString *)stringForObject:(id<NSCoding>)value;
+-(NSString *)stringForInteger:(NSInteger)value;
 @end
 
 
@@ -42,6 +43,12 @@
 
 -(void)testEncodesNilObjectsAsNull {
 	RXAssertEquals([archiver stringForObject:nil], @"null");
+}
+
+
+-(void)testEncodesIntegersWithoutADecimalPoint {
+	RXAssertEquals([archiver stringForInteger:1000], @"1000");
+	RXAssertEquals([archiver stringForInteger:-1000], @"-1000");
 }
 
 @end

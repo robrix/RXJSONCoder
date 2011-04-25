@@ -45,4 +45,8 @@
 	:	@"null";
 }
 
+-(NSString *)stringForInteger:(NSInteger)value {
+	return [NSString stringWithFormat:@"%i", value];
+}
+
 @end
