@@ -1,0 +1,11 @@
+// RXJSONCoder_Prefix.pch
+// Created by Rob Rix on 2011-04-25
+// Copyright 2011 Monochrome Industries
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
+
+#ifdef RX_UNIT_TESTS
+	#import <SenTestingKit/SenTestingKit.h>
+#endif
