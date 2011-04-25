@@ -19,4 +19,8 @@
 }
 
 
+-(BOOL)allowsKeyedCoding {
+	return YES;
+}
+
 @end
