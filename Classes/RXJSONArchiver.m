@@ -39,4 +39,10 @@
 	:	@"false";
 }
 
+-(NSString *)stringForObject:(id<NSCoding>)value {
+	return value?
+		nil
+	:	@"null";
+}
+
 @end

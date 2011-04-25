@@ -7,6 +7,7 @@
 
 @interface RXJSONArchiver (RXJSONArchiverTestsAreUncomfortablyClairvoyant)
 -(NSString *)stringForBool:(BOOL)value;
+-(NSString *)stringForObject:(id<NSCoding>)value;
 @end
 
 
@@ -36,6 +37,11 @@
 
 -(void)testEncodesBooleanNoAsFalse {
 	RXAssertEquals([archiver stringForBool:NO], @"false");
+}
+
+
+-(void)testEncodesNilObjectsAsNull {
+	RXAssertEquals([archiver stringForObject:nil], @"null");
 }
 
 @end
